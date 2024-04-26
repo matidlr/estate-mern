@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { signInStart, signInSuccess, signInFailure } from "../redux/user/userSlice";
+import { signInStart, signInSuccess, signInFailure } from "../redux/user/userSlice.js";
 import OAuth from "../components/OAuth";
 
 const SignIn = () => {
  const [formData, setFormData] = useState({});
 const { loading, error } = useSelector((state) => state.user);
  const navigate = useNavigate();
+ const dispatch = useDispatch();
  const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -54,7 +55,8 @@ const { loading, error } = useSelector((state) => state.user);
          <input  
                 type='password' 
                 placeholder='password' 
-                className='border p-3 rounded-lg' id='password' 
+                className='border p-3 rounded-lg' 
+                id='password' 
                 onChange={handleChange}
                 />
          <button 
