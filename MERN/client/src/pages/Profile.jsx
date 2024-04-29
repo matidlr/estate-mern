@@ -188,6 +188,7 @@ const handleSignOut = async () => {
        <p className="text-green-700 mt-5">
         {updateSuccess ? 'User is updated successfully!' : ''}
         </p>
+        
     </div>
   )
 }
