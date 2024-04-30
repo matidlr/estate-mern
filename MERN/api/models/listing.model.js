@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const listingSchema = new mongoose.Schema(
   {
-    name:{
+    name: {
       type: String,
       required: true,
     },
@@ -50,12 +50,13 @@ const listingSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    useRef: {
+    userRef: {
       type: String,
       required: true,
     },
-  }, {timestamps: true}
-)
+  },
+  { timestamps: true }
+);
 
 const Listing = mongoose.model('Listing', listingSchema);
 
