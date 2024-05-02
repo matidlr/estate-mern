@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-   currentUser: null,
-   error: null,
-   loading: false,
+  currentUser: null,
+  error: null,
+  loading: false,
 };
 
 const userSlice = createSlice({
@@ -61,19 +61,19 @@ const userSlice = createSlice({
   },
 });
 
-export const { 
-  signInStart, 
-  signInSuccess, 
+export const {
+  signInStart,
+  signInSuccess,
   signInFailure,
   updateUserFailure,
   updateUserSuccess,
   updateUserStart,
-  deleteUserStart,
-  deleteUserSuccess,
   deleteUserFailure,
-  signOutUserStart,
-  signOutUserSuccess,
+  deleteUserSuccess,
+  deleteUserStart,
   signOutUserFailure,
- } = userSlice.actions;
+  signOutUserSuccess,
+  signOutUserStart,
+} = userSlice.actions;
 
 export default userSlice.reducer;
