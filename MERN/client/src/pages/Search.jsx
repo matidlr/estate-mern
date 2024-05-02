@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ListingItem from '../components/ListingItem';
 
 function Search() {
+  const navigate = useNavigate();
   const [sidebardata, setSidebardata] = useState({
     searchTerm: '',
     type: 'all',
@@ -88,7 +90,7 @@ function Search() {
         [e.target.id]:
           e.target.checked || e.target.checked === 'true' ? true : false,
       });
-    })
+    }
 
     if (e.target.id === 'sort_order') {
       const sort = e.target.value.split('_')[0] || 'created_at';
@@ -120,7 +122,8 @@ function Search() {
              className='flex flex-col gap-8'>
           <div className="flex items-center gap-2">
             <label className='whitespace-nowrap font-semibold'>Search Term:</label>
-            <input type="text" 
+            <input 
+            type="text" 
             id='searchTerm'
             placeholder='Search...'
             className='border rounded-lg p-3 w-full'
@@ -200,7 +203,7 @@ function Search() {
                  onChange={handleChange}
                  defaultValue={'created_at_desc'}
                  id='sort_order'
-                 className='border rounded-lg p-3' id="sort_order">
+                 className='border rounded-lg p-3'>
                <option value='regularPrice_desc'>Price high to low</option>
                <option value='regularPrice_asc'>Price low to high</option>
                <option value='createdAt_desc'>Latest</option>
@@ -214,8 +217,23 @@ function Search() {
       </div>
       <div className="">
         <h1 className='text-3xl font-semibold border-b p-3 text-slate-700'>Listing results:</h1>
+        <div className="p-7 flex flex-col gap-4">
+          {!loading && listings.length === 0 && (
+            <p className='text-xl text-slate-700'>No listing found!</p>
+          )}
+          {loading && (
+            <p className='text-xl text-slate-700 text-center w-full'>Loading...</p>
+          )}
+
+          {!loading &&
+           listings && 
+           listings.map((listing) => (
+           <ListingItem key={listing._id} listing={listing}/>
+           ))}
+        </div>
       </div>
     </div>
+           
   )
 }
 
