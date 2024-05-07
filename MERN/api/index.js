@@ -6,7 +6,11 @@ import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import { fileURLToPath } from 'url';
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 mongoose
   .connect(process.env.MONGO)
@@ -17,7 +21,7 @@ mongoose
     console.log(err);
   });
 
-  const __dirname = path.resolve();
+  const __dirna = path.resolve();
 
 const app = express();
 
