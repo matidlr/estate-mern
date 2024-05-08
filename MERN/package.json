@@ -5,16 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "client": "npm run dev --prefix client",
     "dev": "nodemon api/index.js",
     "start": "node api/index.js",
-    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install"
-
+    "build": "cd api && npm install  && cd ../client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
