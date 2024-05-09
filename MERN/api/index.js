@@ -24,7 +24,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cookieParser());
-// "https://front-estate-mdlr.netlify.app/"
+/// "https://front-estate-mdlr.netlify.app/"
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000!');
@@ -38,7 +38,7 @@ app.use('/api/listing', listingRouter);
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/dist/index.html'));
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 })
 
 app.use((err, req, res, next) => {
