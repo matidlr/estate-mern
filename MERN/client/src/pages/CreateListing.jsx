@@ -132,7 +132,7 @@ export default function CreateListing() {
         return setError('Discount price must be lower than regular price');
       setLoading(true);
       setError(false);
-      const res = await fetch('https://estate-mern-4122.onrender.com/api/listing/create', {
+      const res = await fetch('/api/listing/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -153,7 +153,6 @@ export default function CreateListing() {
       setLoading(false);
     }
   };
-  console.log(formData);
   return (
     <main className='p-3 max-w-4xl mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>
