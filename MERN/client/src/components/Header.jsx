@@ -57,7 +57,7 @@ export default function Header() {
               About
             </li>
           </Link>
-          
+          </ul>
             {currentUser ? (
               <Link to='/profile'>
               <img
@@ -70,7 +70,7 @@ export default function Header() {
               <Link to='/sign-in' className=' text-slate-700 hover:underline'> Sign in</Link>
             )}
           
-        </ul>
+        
       </div>
     </header>
   );
